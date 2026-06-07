@@ -1,3 +1,4 @@
+README.md
 pyproject.toml
 src/rnaseqcount/__init__.py
 src/rnaseqcount/algorithms.py

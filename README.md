@@ -17,14 +17,15 @@ src/
     ├── prepare.py        # 原始数据解析、长度获取
     └── __init__.py
 
-# 安装
-git clone https://github.com/yourname/rnaseqcount.git
-cd rnaseqcount
-pip install -e .
-# 尚未上传github
+# 安装，已上传github
+pip install git+https://github.com/xrl-tjrxgq/rnaseqcount.git
+# 安装测试
+import rnaseqcount
+print(rnaseqcount.__version__)
 
 # 使用说明
-1.模拟数据测试
+具体请参考./examples/demo.ipynb
+1.模拟数据运行测试
 from rnaseqcount_wf import run_workflow
 # 模拟数据（2组，每组5个样本，1000个基因，20%差异表达）
 cdata, diff_res, sig_genes = run_workflow(
@@ -46,7 +47,7 @@ result = prepare_from_user_files(
     length_source='mygene',                   # 自动获取基因长度（符号）
     species='hsapiens',
     sample_id_col="Run",                      # metadata 中的样本名列
-    condition_col="treatment"                 # metadata 中的分组列，一般分为2组，若非2组则需手动调整以进行比较分析
+    condition_col="treatment"                 # metadata 中的分组列名，一般分为2组，若非2组则需手动调整以进行比较分析。此列的第一个key会被识别为实验组。
 )
 2.2.一键工作流
 from rnaseqcount_wf import run_workflow
@@ -63,7 +64,5 @@ run_workflow(
     output_dir='./rnaseq_demo/real_output',
     prefix='real_demo'
 )
-
-3.单个功能命令行使用
 
 # 欢迎提交 Issue 和 Pull Request。如有任何问题，请联系项目维护者。
