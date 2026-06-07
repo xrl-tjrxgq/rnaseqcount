@@ -1,0 +1,15 @@
+name: rnaseqcount
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - scikit-learn
+  - jupyter
+  - pip:
+    - -e .   
